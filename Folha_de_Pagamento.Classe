@@ -12,16 +12,16 @@ namespace Folha_de_Pagamento.Classe
     {
         static void Main(string[] args)
         {
-            // criando lista
-            List<Funcionarios> list = new List<Funcionarios>();
+           
+            List<Funcionarios> list = new List<Funcionarios>(); //lista
             // pede o numero de funcionarios
             Console.WriteLine("Entre com o número de funcionarios: ");
             int n = int.Parse(Console.ReadLine());
 
             for (int i = 1; i <= n; i++)
             {
-                // informações dos funcionarios
-                Console.WriteLine($"Funcionario#{i}: ");
+               
+                Console.WriteLine($"Funcionario#{i}: "); // informações de funcionarios
                 Console.Write("Tercerizado (S/N): ");
                 char ch = char.Parse(Console.ReadLine());
                 Console.Write("Nome: ");
@@ -31,25 +31,24 @@ namespace Folha_de_Pagamento.Classe
                 Console.WriteLine("Total de horas: ");
                 double thoras = double.Parse(Console.ReadLine());
 
-                // informações adicionais para os tercerizados
-                if (ch == 'S' || ch == 's')
+               
+                if (ch == 'S' || ch == 's') // informaçõe para os tercerizados
                 {
                     Console.WriteLine("Adicional de despesas: ");
                     double adicional = double.Parse(Console.ReadLine());
                     list.Add(new Tercerizado(nome, horas, thoras, adicional));
                 }
 
-                // adiciona a lista o funcionario normal
-                if (ch == 'n' || ch == 'N')
+            
+                if (ch == 'n' || ch == 'N')    // lista de funcionario normal
                 {
                     list.Add(new Normal(nome, horas, thoras));
                 }
                 Console.WriteLine(" ");
             }
 
-            Console.WriteLine();
-            // mostra o pagamento de todos os funcionarios
-            Console.WriteLine("Pagamento: ");
+            Console.WriteLine(); 
+            Console.WriteLine("Pagamento: ");// exibe os pagamento de todos os funcionarios
             foreach (Funcionarios forma in list)
             {
                 Console.WriteLine(forma.Nome + " - " + forma.Salario().ToString("F2", CultureInfo.InvariantCulture));
